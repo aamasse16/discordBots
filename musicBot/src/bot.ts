@@ -1,10 +1,12 @@
 import { Client, ClientOptions } from "discord.js";
 import { Player } from "discord-player";
-import TOKEN from ".env"
+import * as dotenv from "dotenv"
 import ready from "./listeners/ready";
 import interactionCreate from "./listeners/interactionCreate";
 
-const token = TOKEN;
+dotenv.config()
+
+const token = process.env.TOKEN;
 
 console.log('bot is starting...');
 
