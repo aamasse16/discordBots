@@ -19,9 +19,14 @@ const client = new Client({
     ]
 });
 
+const world = 'world';
+export function hello(who: string = world){
+    console.log('Hello ${who}')
+}
+
 //entry point for the discord-player based app
 const player = new Player(client)
-
+ 
 player.events.on('playerStart', (queue: any, track: any) =>{
     queue.metadata.channel.send(` Now playing **${track.title}**! `);
 })
