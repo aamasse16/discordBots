@@ -11,24 +11,18 @@ const token = process.env.TOKEN;
 console.log('bot is starting...');
 
 const client = new Client({
-    intents: [
-        "Guilds",
-        "GuildMessages",
-        "MessageContent",
-        "GuildVoiceStates"
-    ]
+  intents: [
+    "Guilds",
+    "GuildMessages",
+    "MessageContent",
+    "GuildVoiceStates"
+  ]
 });
-
-const world = 'world';
-export function hello(who: string = world){
-    console.log('Hello ${who}')
-}
-
 //entry point for the discord-player based app
 const player = new Player(client)
- 
-player.events.on('playerStart', (queue: any, track: any) =>{
-    queue.metadata.channel.send(` Now playing **${track.title}**! `);
+
+player.events.on('playerStart', (queue: any, track: any) => {
+  queue.metadata.channel.send(` Now playing **${track.title}**! `);
 })
 
 ready(client);
